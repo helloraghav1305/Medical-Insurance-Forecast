@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+  margin-top: 15px;
+  margin-left: 200px;
+  margin-right: 200px;
+  background-color: #f7cac9;
+}
+input[type=text] {
+  width: 100%;
+  padding: 11px 18px;
+  margin: 9px 0;
+  display: inline-block;
+  border: 1px solid red;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: #70c458;
+  color: white;
+  padding: 12px 18px;
+  margin: 7px 0;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #5fab49;
+}
+
+div {
+  border-radius: 4px;
+  background-color: #f2f2f2;
+  padding: 18px;
+}
+
+p {
+  font-size: 18px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  text-align: center;
+}
+
+#i1 {
+  font-size: 18px;
+}
+
+#predict {
+  font-size: 20px;
+}
+  
+</style>  
+</head>  
+<body>
+
+<p>PREDICT INSURANCE COSTS</p>
+
+<div>
+  <form action="{{ url_for('predict')}}" method="post">
+    <label for="age" id="i1">AGE:</label><br>
+    <input type="text" id="age" name="age"><br><br>
+  
+    <label for="gender" id="i1">GENDER:</label><br><br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label><br><br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+  
+    <label for="bmi" id="i1">BMI:</label><br>
+    <input type="text" id="bmi" name="bmi"><br><br>
+  
+    <label for="children" id="i1">CHILDREN:</label><br>
+    <input type="text" id="children" name="children"><br><br>
+  
+    <label for="smoker" id="i1">SMOKER:</label><br><br>
+    <input type="radio" id="yes" name="smoker" value="yes">
+    <label for="yes">Yes</label><br><br>
+    <input type="radio" id="no" name="smoker" value="no">
+    <label for="no">No</label><br><br>
+  
+    <label for="region" id="i1">REGION:</label><br><br>
+    <input type="radio" id="southwest" name="region" value="southwest">
+    <label for="southwest">SouthWest</label><br><br>
+    <input type="radio" id="southeast" name="region" value="southeast">
+    <label for="southeast">SouthEast</label><br><br>
+    <input type="radio" id="northwest" name="region" value="northwest">
+    <label for="northwest">NorthWest</label><br><br>
+    <input type="radio" id="northeast" name="region" value="northeast">
+    <label for="northeast">NorthEast</label><br><br>
+  
+    <button type="submit" class="btn btn-primary btn-block btn-large" id="i1">Predict</button>
+  </form>
+</div>
+
+<p id="predict">{{ prediction_text }}</p>
+
+
+</body>
+</html>
+
